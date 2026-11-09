@@ -90,23 +90,35 @@ header{
 
 }
 
-.start-btn{
-
-    background:#2563eb;
-    color:white;
-
-    text-decoration:none;
-
-    padding:12px 28px;
-
-    border-radius:30px;
-
-    font-weight:600;
-
-    transition:.3s;
-
+.start-btn {
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: .3s;
+    
+    /* Tambah kod animasi kelip-kelip di sini */
+    display: inline-block; /* Supaya animasi berjalan dengan lancar */
+    animation: pulseBlink 1.5s infinite ease-in-out;
 }
 
+/* Kotak Animasi Keyframes */
+@keyframes pulseBlink {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+    }
+    50% {
+        transform: scale(1.05); /* Butang membesar sedikit dengan lembut */
+        box-shadow: 0 0 15px 5px rgba(37, 99, 235, 0.5); /* Kesan cahaya biru menyala (glow) */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
 .start-btn:hover{
 
     background:#1d4ed8;
