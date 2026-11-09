@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edutopia Play | Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-book-open-reader"></i>
+
+        <h2>Edutopia Play</h2>
+
+    </div>
+
+    <ul>
+
+        <li class="active">
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="timer.html">
+                <i class="fa-solid fa-clock"></i>
+                <span>Timer</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="techniques.html">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Study Techniques</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="videos.html">
+                <i class="fa-solid fa-video"></i>
+                <span>Educational Videos</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="todolist.html">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Time Management</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="notes.html">
+                <i class="fa-solid fa-book"></i>
+                <span>Notes</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="quizizz.html">
+                <i class="fa-solid fa-question"></i>
+                <span>Quiz</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="game.html">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Games</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div>
+
+            <h1>Welcome to Edutopia Play !</h1>
+
+            <p>
+                Learn smarter. Stay focused. Achieve your goals.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- TOP SECTION -->
+
+    <div class="top-section">
+
+        <!-- TIMER -->
+
+        <div class="timer-card">
+
+            <h2>Pomodoro Timer</h2>
+
+            <div id="time">25:00</div>
+
+            <div class="timer-buttons">
+
+                <button id="startBtn">Start</button>
+
+                <button id="pauseBtn">Pause</button>
+
+                <button id="resetBtn">Reset</button>
+
+            </div>
+
+        </div>
+        
+        <!-- TIMER -->
+
+        <div class="timer-card">
+
+            <h2>Custom Timer</h2>
+
+            <div class="time-input">
+            <input type="number" id="hours" placeholder="HH" min="0" max="23">
+            <span>:</span>
+
+            <input type="number" id="minutes" placeholder="MM" min="0" max="59">
+            <span>:</span>
+
+            <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+        </div>
+
+        <h1 id="customDisplay">00:00:00</h1>
+
+        <div class="buttons">
+            <button onclick="startCustomTimer()">Start</button>
+            <button onclick="pauseCustomTimer()">Pause</button>
+            <button onclick="resumeCustomTimer()">Resume</button>
+            <button onclick="resetCustomTimer()">Reset</button>
+        </div>
+
+        </div> <!-- Tamat Custom Timer -->
+
+        </div> <!-- <<< TAMBAH BARIS INI (Tamat top-section) -->
+
+<!-- Quick Access + Daily Motivation -->
+<div class="dashboard-row">
+
+    <!-- Quick Access -->
+        <div class="quick-card">
+
+            <h2>Quick Access</h2>
+
+            <div class="quick-grid">
+
+                <a href="videos.html">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Videos</span>
+                </a>
+
+                <a href="notes.html">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Notes</span>
+                </a>
+
+                <a href="quizizz.html">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Quiz</span>
+                </a>
+
+                <a href="techniques.html">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Techniques</span>
+                </a>
+
+                <a href="todolist.html">
+                    <i class="fa-solid fa-list-check"></i>
+                   <span>Time management</span>
+                </a>
+
+                <a href="timer.html">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Timer</span>
+                </a>
+
+                <a href="game.html">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Games</span>
+                </a>
+
+            </div>
+
+        </div>
+
+
+    <!-- Daily Motivation -->
+    <div class="motivation-card">
+
+        <h2><i class="fa-solid fa-heart"></i> Daily Motivation</h2>
+
+        <p id="quote">
+            Education is the most powerful weapon which you can use to change the world.
+        </p>
+
+        <button id="newQuote">
+            <i class="fa-solid fa-rotate-right"></i>
+            New Quote
+        </button>
+
+    </div>
+
+</div>
+        
+
+    <!-- STUDY TECHNIQUES -->
+
+    <section class="techniques">
+
+        <h2>Study Techniques</h2>
+
+        <div class="tech-grid">
+
+            <a href="techniques.html" class="tech-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h3>Active Recall</h3>
+
+                <p>Improve memory by testing yourself.</p>
+
+            </a>
+
+            <a href="techniques.html" class="tech-card">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <h3>Feynman</h3>
+
+                <p>Explain concepts in simple words.</p>
+
+            </a>
+
+            <a href="techniques.html" class="tech-card">
+
+                <i class="fa-solid fa-repeat"></i>
+
+                <h3>Spaced Repetition</h3>
+
+                <p>Review topics over time.</p>
+
+            </a>
+
+            <a href="techniques.html" class="tech-card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h3>Pomodoro</h3>
+
+                <p>Study 25 minutes with focused sessions.</p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

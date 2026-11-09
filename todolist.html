@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edutopia Play | Time Management</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="todolist.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header>
+
+            <h1>
+                <i class="fa-solid fa-list-check"></i>
+                Time Management
+            </h1>
+
+            <p>Stay Organized. Stay Productive.</p>
+
+        </header>
+
+        <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-book-open-reader"></i>
+
+            <h2>StudyHub</h2>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="timer.html">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Timer</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="techniques.html">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Study Techniques</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="videos.html">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Educational Videos</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="todolist.html">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Time Management</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="notes.html">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Notes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="quizizz.html">
+                    <i class="fa-solid fa-question"></i>
+                    <span>Quiz</span>
+                </a>
+            </li>
+
+            <li>
+            <a href="game.html">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Games</span>
+            </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+     <div class="main">
+
+        <!-- ================= PROGRESS ================= -->
+
+        <section class="progress-section">
+
+            <div class="progress-header">
+
+                <h3>Today's Progress</h3>
+
+                <span id="progressText">0%</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress" id="progressBar"></div>
+
+            </div>
+
+        </section>
+
+        </div>
+
+        <!-- ================= ADD TASK ================= -->
+
+        <section class="task-form">
+
+            <h2>Add New Task</h2>
+
+            <input type="text"
+                id="taskInput"
+                placeholder="Enter your task">
+
+            <select id="subject">
+
+                <option value="">Choose Subject</option>
+
+                <option>Physics</option>
+
+                <option>Chemistry</option>
+
+                <option>Mathematics</option>
+
+                <option>Add Mathematics</option>
+
+                <option>Computer Science</option>
+
+            </select>
+
+            <input type="date"
+                id="dueDate">
+
+            <select id="priority">
+
+                <option value="">Priority</option>
+
+                <option>High</option>
+
+                <option>Medium</option>
+
+                <option>Low</option>
+
+            </select>
+
+            <button id="addTask">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Task
+
+            </button>
+
+        </section>
+
+        <!-- ================= TASK LIST ================= -->
+
+        <section class="task-list">
+
+            <h2>
+
+                <i class="fa-solid fa-book"></i>
+
+                Today's Tasks
+
+            </h2>
+
+            <ul id="taskContainer">
+
+                <!-- Task akan dipaparkan oleh JavaScript -->
+
+            </ul>
+
+        </section>
+
+        <!-- ================= ACTION BUTTON ================= -->
+
+        <section class="action-buttons">
+
+            <button id="clearCompleted">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear Completed
+
+            </button>
+
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <p>
+
+                2026 StudyHub | Created by Arisya , Alesya , Adriyanasya , Putri and Isyraf
+
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="todolist.js"></script>
+
+</body>
+
+</html>

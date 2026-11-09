@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Bay - Individual Game | Edutopia Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* ================= GENERAL SETTINGS & COMBINED CSS ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ================= STUDYHUB SIDEBAR ================= */
+        .sidebar {
+            width: 260px;
+            background-color: #2563EB;
+            color: white;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+            z-index: 100;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 25px 25px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .sidebar .logo i {
+            font-size: 1.8rem;
+            color: #ffffff;
+        }
+
+        .sidebar .logo h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .sidebar ul li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 25px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li a i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .sidebar ul li.active a {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+            border-left: 4px solid #ffffff;
+        }
+
+        /* ================= MAIN CONTENT ================= */
+        .main {
+            margin-left: 260px;
+            flex: 1;
+            padding: 40px;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #202124;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #5f6368;
+            font-size: 1rem;
+        }
+
+        /* ================= GENERAL TECH CARD ================= */
+        .tech-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef0f2;
+        }
+
+        /* ================= SETUP CARD / START SCREEN ================= */
+        .setup-card {
+            max-width: 550px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-banner-icon {
+            font-size: 2.5rem;
+            color: #2563EB;
+            background-color: rgba(37, 99, 235, 0.1);
+            padding: 20px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .setup-card h2 {
+            font-size: 1.35rem;
+            color: #202124;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .setup-card p {
+            color: #5f6368;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        #start-game-btn, #restart-btn {
+            background-color: #2563EB;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 250px;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #start-game-btn:hover, #restart-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* ================= BUBBLE BAY ARENA ================= */
+        .main-content {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .bubble-arena-wrapper {
+            flex: 1;
+            min-width: 320px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef0f2;
+        }
+
+        .game-hud {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #202124;
+            margin-bottom: 15px;
+            border: 1px solid #eef0f2;
+        }
+
+        .bubble-arena {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #2563EB;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Question Box at the Top of the Arena */
+        .game-question-box {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            z-index: 10;
+            text-align: center;
+            border: 1px solid #eef0f2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #2563EB;
+            color: white;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .game-question-box h3 {
+            font-size: 0.95rem;
+            color: #202124;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Floating Bubbles Container */
+        .bubbles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        /* Interactive Bubble Style */
+        .bubble {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(37, 99, 235, 0.4) 60%, rgba(29, 78, 216, 0.7) 100%);
+            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.2), 0 5px 15px rgba(37, 99, 235, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            pointer-events: auto;
+            user-select: none;
+            transition: transform 0.1s;
+            animation: floatUp 6s linear infinite;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -100px;
+            }
+            100% {
+                bottom: 520px;
+            }
+        }
+
+        /* ================= GAME SIDEBAR (INSTRUCTIONS) ================= */
+        .sidebar-game {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-game h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #202124;
+            margin-bottom: 12px;
+        }
+
+        .game-instructions {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .game-instructions li {
+            font-size: 0.9rem;
+            color: #5f6368;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .game-instructions li i {
+            margin-top: 3px;
+        }
+
+        /* ================= RESPONSIVE (MOBILE) ================= */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+                padding: 15px 0;
+            }
+            
+            .sidebar .logo h2,
+            .sidebar ul li a span {
+                display: none;
+            }
+
+            .sidebar .logo {
+                padding: 0 0 20px 0;
+                justify-content: center;
+            }
+
+            .sidebar ul li a {
+                justify-content: center;
+                padding: 15px;
+            }
+
+            .sidebar ul li.active a {
+                border-left: none;
+                border-bottom: 4px solid #ffffff;
+            }
+
+            .main {
+                margin-left: 70px;
+                padding: 20px;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar-game {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= STUDYHUB SIDEBAR ================= -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <h2>Edutopia Play</h2>
+        </div>
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="timer.html">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Timer</span>
+                </a>
+            </li>
+            <li>
+                <a href="techniques.html">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Study Techniques</span>
+                </a>
+            </li>
+            <li>
+                <a href="videos.html">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Educational Videos</span>
+                </a>
+            </li>
+            <li>
+                <a href="todolist.html">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Time Management</span>
+                </a>
+            </li>
+            <li>
+                <a href="notes.html">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="quizizz.html">
+                    <i class="fa-solid fa-question"></i>
+                    <span>Quiz</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="individual.html">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Games</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ================= MAIN GAME CONTENT ================= -->
+    <div class="main">
+        <div class="header">
+            <h1>Bubble Bay: Form 4 Academic Mission</h1>
+            <p>Shoot the correct answer bubbles based on Form 4 subject questions!</p>
+        </div>
+
+        <!-- Start Screen / Bubble Bay Main Menu -->
+        <div id="setup-screen" class="tech-card setup-card">
+            <div class="game-banner-icon">
+                <i class="fa-solid fa-droplet"></i>
+            </div>
+            <h2>Welcome to Bubble Bay!</h2>
+            <p style="margin-bottom: 20px; color: #5f6368;">Test your speed and knowledge in Mathematics, Physics, Chemistry, Computer Science & AddMath individually.</p>
+            <button id="start-game-btn" onclick="startBubbleGame()">Start Bubble Bay</button>
+        </div>
+
+        <!-- Bubble Bay Game Arena Main Display -->
+        <div class="main-content hidden" id="game-main-content">
+            <!-- Game Board / Bubble Arena -->
+            <div class="bubble-arena-wrapper">
+                <div class="game-hud">
+                    <div class="hud-item">Score: <span id="score-val">0</span></div>
+                    <div class="hud-item">Lives: <span id="lives-val">❤️❤️❤️</span></div>
+                </div>
+
+                <div id="bubble-arena" class="bubble-arena">
+                    <!-- Current Question at the Top -->
+                    <div id="game-question-box" class="game-question-box">
+                        <span id="game-subject-badge" class="badge">Subject</span>
+                        <h3 id="game-question-text">Questions will be displayed here...</h3>
+                    </div>
+
+                    <!-- Floating Answer Bubbles -->
+                    <div id="bubbles-container" class="bubbles-container"></div>
+                </div>
+            </div>
+
+            <!-- Side Control Panel -->
+            <div class="sidebar-game">
+                <div class="tech-card">
+                    <h2>How to Play</h2>
+                    <ul class="game-instructions">
+                        <li><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Read the question at the top of the arena.</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Click on the bubble containing the correct answer.</li>
+                        <li><i class="fa-solid fa-heart-crack" style="color: #EF4444;"></i> Lose 1 life if you click the wrong bubble or a bubble escapes!</li>
+                    </ul>
+                </div>
+                <button id="restart-btn" class="hidden" onclick="location.reload()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= COMBINED JAVASCRIPT CODE ================= -->
+    <script>
+        const questionBank = [
+            // --- MATHEMATICS ---
+            {
+                subject: "Mathematics",
+                badgeColor: "#2563EB",
+                question: "Apakah hasil bagi pengembangan ungkapan berikut: (x + 3)(x - 5)?",
+                options: ["x² - 2x - 15", "x² + 2x - 15", "x² - 8x + 15", "x² + 8x + 15"],
+                answer: 0
+            },
+            {
+                subject: "Mathematics",
+                badgeColor: "#2563EB",
+                question: "Berapakah jumlah sudut pedalaman bagi sebuah poligon sekata bersisi 5 (Pentagon)?",
+                options: ["360°", "540°", "720°", "1080°"],
+                answer: 1
+            },
+            {
+                subject: "Mathematics",
+                badgeColor: "#2563EB",
+                question: "Cari nilai bagi log₁₀ 100.",
+                options: ["1", "2", "10", "100"],
+                answer: 1
+            },
+            {
+                subject: "Mathematics",
+                badgeColor: "#2563EB",
+                question: "Apakah bentuk cerun-intipati bagi garis lurus y = mx + c, di mana m mewakili?",
+                options: ["Intipati-y", "Kecerunan", "Pintasan-x", "Titik tengah"],
+                answer: 1
+            },
+            {
+                subject: "Mathematics",
+                badgeColor: "#2563EB",
+                question: "Apakah nilai bagi sin(30°) dalam segi tiga bersudut tegak?",
+                options: ["0.5", "1", "0.866", "0"],
+                answer: 0
+            },
+            {
+                subject: "Mathematics",
+                badgeColor: "#2563EB",
+                question: "Jika set A = {2, 3, 5, 7}, berapakah bilangan subset bagi set A?",
+                options: ["8", "16", "32", "64"],
+                answer: 1
+            },
+
+            // --- PHYSICS ---
+            {
+                subject: "Physics",
+                badgeColor: "#7C3AED",
+                question: "Apakah unit bagi Pecutan dalam Sistem Unit Antarabangsa (SI)?",
+                options: ["m/s", "m/s²", "N/kg", "kg m/s"],
+                answer: 1
+            },
+            {
+                subject: "Physics",
+                badgeColor: "#7C3AED",
+                question: "Hukum Gerakan Newton yang manakah menyatakan 'Setiap tindakan mempunyai tindak balas yang setara tetapi bertentangan arah'?",
+                options: ["Hukum Gerakan Newton Pertama", "Hukum Gerakan Newton Kedua", "Hukum Gerakan Newton Ketiga", "Hukum Gravitasi Semesta"],
+                answer: 2
+            },
+            {
+                subject: "Physics",
+                badgeColor: "#7C3AED",
+                question: "Apakah formula bagi Momentum (p)?",
+                options: ["p = mv", "p = ma", "p = mgh", "p = 1/2 mv²"],
+                answer: 0
+            },
+            {
+                subject: "Physics",
+                badgeColor: "#7C3AED",
+                question: "Apakah nilai bagi pecutan graviti bumi (g) di permukaan bumi secara amnya?",
+                options: ["9.81 m/s²", "10.0 m/s²", "3.0 x 10⁸ m/s", "1.6 m/s²"],
+                answer: 0
+            },
+            {
+                subject: "Physics",
+                badgeColor: "#7C3AED",
+                question: "Apakah prinsip yang menyatakan 'Tekanan yang dikenakan ke atas cecair tertutup akan dipindahkan secara seragam ke semua arah'?",
+                options: ["Prinsip Archimedes", "Prinsip Bernoulli", "Prinsip Pascal", "Hukum Hooke"],
+                answer: 2
+            },
+            {
+                subject: "Physics",
+                badgeColor: "#7C3AED",
+                question: "Apakah unit S.I. bagi Tenaga Kinetik?",
+                options: ["Watt (W)", "Joule (J)", "Newton (N)", "Pascal (Pa)"],
+                answer: 1
+            },
+
+            // --- CHEMISTRY ---
+            {
+                subject: "Chemistry",
+                badgeColor: "#10B981",
+                question: "Apakah zarah subatom yang mempunyai cas negatif?",
+                options: ["Proton", "Neutron", "Elektron", "Nukleus"],
+                answer: 2
+            },
+            {
+                subject: "Chemistry",
+                badgeColor: "#10B981",
+                question: "Unsur dalam Jadual Berkala yang terletak dalam Kumpulan 1 dikenali sebagai:",
+                options: ["Gas Nul", "Logam Alkali", "Halogen", "Logam Peralihan"],
+                answer: 1
+            },
+            {
+                subject: "Chemistry",
+                badgeColor: "#10B981",
+                question: "Apakah nombor proton bagi unsur Karbon (C)?",
+                options: ["6", "8", "12", "14"],
+                answer: 0
+            },
+            {
+                subject: "Chemistry",
+                badgeColor: "#10B981",
+                question: "Apakah formula kimia bagi gas Karbon Dioksida?",
+                options: ["CO", "CO₂", "H₂O", "NaCl"],
+                answer: 1
+            },
+            {
+                subject: "Chemistry",
+                badgeColor: "#10B981",
+                question: "Apakah nilai pH bagi larutan neutral pada suhu bilik?",
+                options: ["0", "7", "14", "5"],
+                answer: 1
+            },
+            {
+                subject: "Chemistry",
+                badgeColor: "#10B981",
+                question: "Apakah ikatan kimia yang terbentuk melalui perkongsian elektron antara atom-atom bukan logam?",
+                options: ["Ikatan Ion", "Ikatan Kovalen", "Ikatan Logam", "Ikatan Hidrogen"],
+                answer: 1
+            },
+
+            // --- COMPUTER SCIENCE ---
+            {
+                subject: "Computer Science",
+                badgeColor: "#F59E0B",
+                question: "Apakah struktur kawalan yang digunakan untuk mengulangi satu blok arahan selagi syarat tertentu dipenuhi?",
+                options: ["If-Else", "While Loop", "Switch-Case", "Array"],
+                answer: 1
+            },
+            {
+                subject: "Computer Science",
+                badgeColor: "#F59E0B",
+                question: "Apakah jenis ralat yang berlaku apabila kod melanggar aturan sintaks bahasa pengaturcaraan?",
+                options: ["Logic Error", "Runtime Error", "Syntax Error", "System Error"],
+                answer: 2
+            },
+            {
+                subject: "Computer Science",
+                badgeColor: "#F59E0B",
+                question: "Apakah unit asas storan data dalam komputer yang bernilai 0 atau 1?",
+                options: ["Byte", "Bit", "Kilobyte", "Megabyte"],
+                answer: 1
+            },
+            {
+                subject: "Computer Science",
+                badgeColor: "#F59E0B",
+                question: "Fasa yang manakah merupakan langkah pertama dalam Model Kitar Hayat Pembangunan Sistem (SDLC)?",
+                options: ["Pengekodan", "Perekodan", "Analisis Masalah", "Pengujian"],
+                answer: 2
+            },
+            {
+                subject: "Computer Science",
+                badgeColor: "#F59E0B",
+                question: "Apakah jenis pembolehubah yang boleh diakses di seluruh program dalam atur cara?",
+                options: ["Pembolehubah Lokal", "Pembolehubah Global", "Pembolehubah Tetap", "Pembolehubah Semasa"],
+                answer: 1
+            },
+            {
+                subject: "Computer Science",
+                badgeColor: "#F59E0B",
+                question: "Simbol carta alir yang berbentuk 'Diamond' (Permata) digunakan untuk fungsi apa?",
+                options: ["Proses", "Input/Output", "Pilihan / Syarat", "Penyambung"],
+                answer: 2
+            },
+
+            // --- ADDITIONAL MATHEMATICS ---
+            {
+                subject: "AddMath",
+                badgeColor: "#EF4444",
+                question: "Diberi fungsi f(x) = 2x + 3, cari nilai bagi f(4).",
+                options: ["8", "10", "11", "14"],
+                answer: 2
+            },
+            {
+                subject: "AddMath",
+                badgeColor: "#EF4444",
+                question: "Apakah kecerunan bagi garis lurus yang diwakili oleh persamaan 3x + 2y = 6?",
+                options: ["-3/2", "3/2", "-2/3", "2/3"],
+                answer: 0
+            },
+            {
+                subject: "AddMath",
+                badgeColor: "#EF4444",
+                question: "Apakah bentuk graf bagi fungsi kuadratik f(x) = -x² + 2x + 3?",
+                options: ["Bentuk senyum (U)", "Bentuk masam (∩)", "Garis lurus", "Lengkung kubik"],
+                answer: 1
+            },
+            {
+                subject: "AddMath",
+                badgeColor: "#EF4444",
+                question: "Jika punca-punca bagi persamaan kuadratik adalah sama, apakah nilai pembezaan (b² - 4ac)?",
+                options: ["Lebih besar dari 0 (> 0)", "Kurang dari 0 (< 0)", "Sama dengan 0 (= 0)", "Sama dengan 1"],
+                answer: 2
+            },
+            {
+                subject: "AddMath",
+                badgeColor: "#EF4444",
+                question: "Apakah nilai bagi logaritma asas 2 bagi 8 (log₂ 8)?",
+                options: ["2", "3", "4", "8"],
+                answer: 1
+            },
+            {
+                subject: "AddMath",
+                badgeColor: "#EF4444",
+                question: "Dalam hukum indeks, apakah nilai bagi a⁰ (dengan syarat a tidak sama dengan 0)?",
+                options: ["0", "1", "a", "Infinity"],
+                answer: 1
+            }
+        ];
+
+        let score = 0;
+        let lives = 3;
+        let gameActive = false;
+        let activeBubbles = [];
+
+        function startBubbleGame() {
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('game-main-content').classList.remove('hidden');
+            
+            score = 0;
+            lives = 3;
+            gameActive = true;
+            
+            updateHUD();
+            loadNextQuestion();
+        }
+
+        function updateHUD() {
+            document.getElementById('score-val').innerText = score;
+            let hearts = "";
+            for (let i = 0; i < lives; i++) {
+                hearts += "❤️ ";
+            }
+            document.getElementById('lives-val').innerText = hearts.trim();
+        }
+
+        function loadNextQuestion() {
+            if (!gameActive) return;
+
+            if (lives <= 0) {
+                endGame();
+                return;
+            }
+
+            let randomIndex = Math.floor(Math.random() * questionBank.length);
+            let q = questionBank[randomIndex];
+
+            document.getElementById('game-subject-badge').innerText = q.subject;
+            document.getElementById('game-subject-badge').style.backgroundColor = q.badgeColor;
+            document.getElementById('game-question-text').innerText = q.question;
+
+            const container = document.getElementById('bubbles-container');
+            container.innerHTML = '';
+            activeBubbles = [];
+
+            let optionsWithIndex = q.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+            optionsWithIndex.sort(() => Math.random() - 0.5);
+
+            let leftPositions = [10, 35, 60, 85];
+            leftPositions.sort(() => Math.random() - 0.5);
+
+            optionsWithIndex.forEach((item, index) => {
+                let bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                bubble.innerText = item.text;
+                
+                let leftPos = leftPositions[index] || (index * 22 + 5);
+                bubble.style.left = `${leftPos}%`;
+                bubble.style.animationDelay = `${index * 0.4}s`;
+
+                bubble.onclick = () => {
+                    if (!gameActive) return;
+                    handleBubbleClick(item.originalIndex === q.answer, bubble);
+                };
+
+                bubble.addEventListener('animationend', () => {
+                    if (bubble.parentElement) {
+                        bubble.remove();
+                        if (item.originalIndex === q.answer && gameActive) {
+                            loseLife("Correct answer bubble missed!");
+                        }
+                    }
+                });
+
+                container.appendChild(bubble);
+                activeBubbles.push(bubble);
+            });
+        }
+
+        function handleBubbleClick(isCorrect, bubbleElement) {
+            bubbleElement.remove();
+
+            if (isCorrect) {
+                score += 10;
+                updateHUD();
+                setTimeout(() => {
+                    loadNextQuestion();
+                }, 300);
+            } else {
+                loseLife("Wrong answer!");
+            }
+        }
+
+        function loseLife(reason) {
+            lives--;
+            updateHUD();
+
+            if (lives <= 0) {
+                endGame();
+            } else {
+                loadNextQuestion();
+            }
+        }
+
+        function endGame() {
+            gameActive = false;
+            const container = document.getElementById('bubbles-container');
+            container.innerHTML = '';
+
+            document.getElementById('game-question-text').innerText = `Game Over! Your Final Score: ${score}`;
+            document.getElementById('game-subject-badge').innerText = "Game Over";
+            document.getElementById('game-subject-badge').style.backgroundColor = "#EF4444";
+
+            document.getElementById('restart-btn').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

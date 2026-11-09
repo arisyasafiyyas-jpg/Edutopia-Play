@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edutopia Play | Timer</title>
+
+    <link rel="stylesheet" href="timer.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-book-open-reader"></i>
+
+        <h2>Edutopia Play</h2>
+
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="timer.html">
+                <i class="fa-solid fa-clock"></i>
+                <span>Timer</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="techniques.html">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Study Techniques</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="videos.html">
+                <i class="fa-solid fa-video"></i>
+                <span>Educational Videos</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="todolist.html">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Time Management</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="notes.html">
+                <i class="fa-solid fa-book"></i>
+                <span>Notes</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="quizizz.html">
+                <i class="fa-solid fa-question"></i>
+                <span>Quiz</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="quizizz.html">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Quiz</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+    <div class="header">
+
+        <h1>Pomodoro Timer</h1>
+
+        <p>
+            Stay focused and manage your study sessions effectively.
+        </p>
+
+    </div>
+
+    <!-- Timer Mode -->
+
+    <div class="mode-buttons">
+
+        <button id="pomodoroBtn">Pomodoro</button>
+
+        <button id="shortBtn">Short Break</button>
+
+        <button id="longBtn">Long Break</button>
+
+    </div>
+
+    <!-- Timer Card -->
+
+    <div class="timer-card">
+
+        <h1 id="time">25:00</h1>
+
+        <div class="timer-buttons">
+
+            <button id="startBtn">
+
+                <i class="fa-solid fa-play"></i>
+
+                Start
+
+            </button>
+
+            <button id="pauseBtn">
+
+                <i class="fa-solid fa-pause"></i>
+
+                Pause
+
+            </button>
+
+            <button id="resetBtn">
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Tips -->
+
+    <div class="tips">
+
+        <h2>Pomodoro Tips</h2>
+
+        <ul>
+
+            <li>Study with full focus for 25 minutes.</li>
+
+            <li>Take a 5-minute break after each session.</li>
+
+            <li>After four sessions, take a longer break.</li>
+
+            <li>Avoid distractions while the timer is running.</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="custom-timer">
+    <h2>Custom Timer</h2>
+
+    <div class="time-input">
+        <input type="number" id="hours" placeholder="HH" min="0" max="23">
+        <span>:</span>
+
+        <input type="number" id="minutes" placeholder="MM" min="0" max="59">
+        <span>:</span>
+
+        <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+    </div>
+
+    <h1 id="customDisplay">00:00:00</h1>
+
+    <div class="buttons">
+        <button onclick="startCustomTimer()">Start</button>
+        <button onclick="pauseCustomTimer()">Pause</button>
+        <button onclick="resumeCustomTimer()">Resume</button>
+        <button onclick="resetCustomTimer()">Reset</button>
+    </div>
+</div>
+
+<script src="timer.js"></script>
+
+</body>
+</html>

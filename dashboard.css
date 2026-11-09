@@ -1,0 +1,669 @@
+/* =====================================
+   GOOGLE FONT
+===================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =====================================
+   RESET
+===================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F4F8FF;
+    color:#1E293B;
+}
+
+/* =====================================
+   SIDEBAR
+===================================== */
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+
+    width:250px;
+    height:100vh;
+
+    background:#2563EB;
+    color:white;
+
+    padding:30px 20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:45px;
+}
+
+.logo i{
+    font-size:28px;
+}
+
+.logo h2{
+    font-size:24px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin-bottom:15px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    color:white;
+    text-decoration:none;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.sidebar a:hover,
+.sidebar .active a{
+    background:rgba(255,255,255,.15);
+}
+
+.sidebar span{
+    font-size:15px;
+}
+
+/* =====================================
+   MAIN
+===================================== */
+
+.main{
+
+    margin-left:250px;
+
+    padding:40px;
+
+}
+
+.header{
+
+    margin-bottom:35px;
+
+}
+
+.header h1{
+
+    font-size:34px;
+
+}
+
+.header p{
+
+    color:#64748B;
+    margin-top:8px;
+
+}
+
+/* =====================================
+   TOP SECTION
+===================================== */
+
+.top-section{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+/* =====================================
+   TIMER CARD
+===================================== */
+
+.timer-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.timer-card h2{
+
+    margin-bottom:20px;
+
+}
+
+#time{
+
+    font-size:70px;
+
+    color:#2563EB;
+
+    font-weight:700;
+
+    text-align:center;
+
+    margin:30px 0;
+
+}
+
+.timer-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.timer-buttons button{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+#startBtn{
+
+    background:#22C55E;
+    
+
+}
+
+#pauseBtn{
+
+    background:#F59E0B;
+
+}
+
+#resetBtn{
+
+    background:#EF4444;
+
+}
+
+.timer-buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.open-btn{
+
+    display:block;
+
+    width:220px;
+
+    margin:30px auto 0;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.open-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.time-input{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:20px 0;
+}
+
+.time-input input{
+    width:65px;
+    height:45px;
+    border:2px solid #4F46E5;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+    outline:none;
+}
+
+.time-input span{
+    font-size:24px;
+    font-weight:bold;
+}
+
+#customDisplay{
+    font-size:42px;
+    font-weight:700;
+    margin:20px 0;
+    color:#4F46E5;
+}
+
+.custom-timer{
+    width:420px;
+    margin:40px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.custom-timer h2{
+    color:#2b4eff;
+    margin-bottom:20px;
+}
+
+.time-input{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.time-input input{
+    width:78px;
+    height:58px;
+
+    border:2px solid #2563EB;
+    border-radius:14px;
+
+    text-align:center;
+
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:1px;
+
+    color:#2563EB;
+    background:#F8FAFF;
+
+    outline:none;
+    transition:.3s;
+}
+
+.time-input input:focus{
+    border-color:#1D4ED8;
+    box-shadow:0 0 12px rgba(37,99,235,.25);
+}
+
+#customDisplay{
+    font-size:55px;
+    font-weight:700;
+    color:#2b4eff;
+    margin:20px 0 30px;
+    text-align:center;
+}
+
+/* Custom Timer Buttons */
+.buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.buttons button{
+    padding:12px 28px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    font-weight:600;
+    font-size:16px;
+    transition:.3s;
+}
+
+.buttons button:hover{
+    transform:translateY(-3px);
+}
+
+/* Warna sama macam Pomodoro */
+.buttons button:nth-child(1){
+    background:#22C55E;   /* Start */
+}
+
+.buttons button:nth-child(2){
+    background:#F59E0B;   /* Pause */
+}
+
+.buttons button:nth-child(3){
+    background:#2563EB;   /* Resume */
+}
+
+.buttons button:nth-child(4){
+    background:#EF4444;   /* Reset */
+}
+
+/* =====================================
+   QUICK ACCESS
+===================================== */
+
+.quick-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.dashboard-row{
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.dashboard-row .quick-card{
+    flex: 2;
+}
+
+.dashboard-row .motivation-card{
+    flex: 1;
+}
+
+.quick-card h2{
+
+    margin-bottom:20px;
+
+}
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.quick-grid a{
+
+    text-decoration:none;
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.quick-grid a:hover{
+
+    background:#2563EB;
+    color:white;
+
+}
+
+.quick-grid i{
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+    display:block;
+
+}
+
+/* =====================================
+   DAILY MOTIVATION
+===================================== */
+
+.motivation-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;      /* Tengah secara melintang */
+    text-align:center;       /* Teks di tengah */
+
+}
+
+.motivation-card h2{
+
+    margin-bottom:20px;
+    color:#2563EB;
+
+}
+
+.motivation-card p{
+
+    color:#64748B;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.motivation-card button{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.motivation-card button:hover{
+
+    background:#1D4ED8;
+
+}
+
+
+/* =====================================
+   STUDY TECHNIQUES
+===================================== */
+
+.techniques h2{
+
+    margin-bottom:20px;
+
+}
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.tech-card{
+
+    background:white;
+
+    text-decoration:none;
+
+    color:#1E293B;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.tech-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.tech-card i{
+
+    font-size:40px;
+
+    color:#2563EB;
+
+    margin-bottom:18px;
+
+}
+
+.tech-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.tech-card p{
+
+    color:#64748B;
+
+    line-height:1.7;
+
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media(max-width:1100px){
+
+.top-section{
+
+    grid-template-columns:1fr;
+
+}
+
+.tech-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.sidebar{
+
+    width:90px;
+
+}
+
+.logo h2{
+
+    display:none;
+
+}
+
+.sidebar span{
+
+    display:none;
+
+}
+
+.sidebar a{
+
+    justify-content:center;
+
+}
+
+.main{
+
+    margin-left:90px;
+
+    padding:25px;
+
+}
+
+.tech-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.quick-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+#time{
+
+    font-size:50px;
+
+}
+
+.timer-buttons{
+
+    flex-direction:column;
+
+}
+
+}

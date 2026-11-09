@@ -1,0 +1,421 @@
+/* ================= TETAPAN UMUM ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================= SIDEBAR STUDYHUB ================= */
+.sidebar {
+    width: 260px;
+    background-color: #2563EB;
+    color: white;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 25px 25px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar .logo i {
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.sidebar .logo h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 25px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.sidebar ul li.active a {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+    border-left: 4px solid #ffffff;
+}
+
+/* ================= BAHAGIAN UTAMA (MAIN CONTENT) ================= */
+.main {
+    margin-left: 260px;
+    flex: 1;
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+.header {
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #202124;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #5f6368;
+    font-size: 1rem;
+}
+
+/* ================= SKRIN PERSEDIAAN PEMAIN (SETUP CARD) ================= */
+.setup-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef0f2;
+    max-width: 550px;
+}
+
+.setup-card h2 {
+    font-size: 1.25rem;
+    color: #202124;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#player-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+#player-inputs input {
+    padding: 12px 16px;
+    border: 1px solid #eef0f2;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+#player-inputs input:focus {
+    border-color: #2563EB;
+    background-color: #fff;
+}
+
+#start-game-btn, #roll-btn {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+#start-game-btn:hover, #roll-btn:hover {
+    background-color: #1d4ed8;
+}
+
+#roll-btn:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* ================= UTAMA PERMAINAN & PAPAN DAM ================= */
+.main-content {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.board-wrapper {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef0f2;
+}
+
+.grid-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 480px;
+    height: 480px;
+    background-color: #f8f9fa;
+    border: 2px solid #2563EB;
+    border-radius: 6px;
+}
+
+.cell {
+    border: 1px solid #e2e8f0;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: #ffffff;
+}
+
+.cell-number {
+    color: #94a3b8;
+}
+
+.ladder-cell {
+    background-color: rgba(16, 185, 129, 0.15); /* Hijau lembut untuk tangga */
+}
+
+.snake-cell {
+    background-color: rgba(239, 68, 68, 0.15); /* Merah lembut untuk ular */
+}
+
+.player-token {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 1px solid white;
+}
+
+/* ================= SIDEBAR PERMAINAN (SKOR & DADU) ================= */
+.sidebar-game {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.scoreboard, .dice-section {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef0f2;
+}
+
+.scoreboard h2, .dice-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 12px;
+}
+
+#player-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#player-list li {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5f6368;
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dice-display {
+    font-size: 2.2rem;
+    margin: 10px 0 15px 0;
+    text-align: center;
+    font-weight: 700;
+    color: #202124;
+}
+
+/* ================= MODAL KUIZ AKADEMIK ================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #eef0f2;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.badge {
+    padding: 6px 12px;
+    color: white;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+#quiz-timer {
+    font-weight: 600;
+    color: #ef4444;
+}
+
+.modal-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #202124;
+    line-height: 1.5;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    background-color: #f8f9fa;
+    color: #202124;
+    border: 1px solid #eef0f2;
+    text-align: left;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s;
+}
+
+.option-btn:hover {
+    background-color: #2563EB;
+    color: white;
+    border-color: #2563EB;
+}
+
+#feedback-message {
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* ================= RESPENSIF (MOBILE) ================= */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 15px 0;
+    }
+    
+    .sidebar .logo h2,
+    .sidebar ul li a span {
+        display: none;
+    }
+
+    .sidebar .logo {
+        padding: 0 0 20px 0;
+        justify-content: center;
+    }
+
+    .sidebar ul li a {
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .sidebar ul li.active a {
+        border-left: none;
+        border-bottom: 4px solid #ffffff;
+    }
+
+    .main {
+        margin-left: 70px;
+        padding: 20px;
+    }
+
+    .grid-board {
+        width: 330px;
+        height: 330px;
+    }
+}

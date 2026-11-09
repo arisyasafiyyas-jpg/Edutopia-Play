@@ -1,0 +1,207 @@
+/* ================= TETAPAN UMUM ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+
+    width:250px;
+    height:100vh;
+
+    background:#2563EB;
+    color:white;
+
+    padding:30px 20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:45px;
+}
+
+.logo i{
+    font-size:28px;
+}
+
+.logo h2{
+    font-size:24px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin-bottom:15px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    color:white;
+    text-decoration:none;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.sidebar a:hover,
+.sidebar .active a{
+    background:rgba(255,255,255,.15);
+}
+
+.sidebar span{
+    font-size:15px;
+}
+
+/* ================= BAHAGIAN UTAMA (MAIN CONTENT) ================= */
+.main {
+    margin-left: 260px;
+    flex: 1;
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+.header {
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #202124;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #5f6368;
+    font-size: 1rem;
+}
+
+/* ================= GRID & KAD KANDUNGAN ================= */
+.technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tech-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #eef0f2;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.tech-card > i {
+    font-size: 2rem;
+    color: #2563EB;
+    background-color: rgba(37, 99, 235, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.tech-card h2 {
+    font-size: 1.25rem;
+    color: #202124;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.tech-card p {
+    color: #5f6368;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Pautan Butang 'Tap to play' */
+a.tech-card {
+    text-decoration: none;
+    background-color: #2563EB;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    align-self: stretch;
+    text-align: center;
+    box-shadow: none;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+a.tech-card:hover {
+    background-color: #1d4ed8;
+    transform: none;
+}
+
+a.tech-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ================= RESPENSIF (MOBILE) ================= */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 15px 0;
+    }
+    
+    .sidebar .logo h2,
+    .sidebar ul li a span {
+        display: none;
+    }
+
+    .sidebar .logo {
+        padding: 0 0 20px 0;
+        justify-content: center;
+    }
+
+    .sidebar ul li a {
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .sidebar ul li.active a {
+        border-left: none;
+        border-bottom: 4px solid #ffffff;
+    }
+
+    .main {
+        margin-left: 70px;
+        padding: 20px;
+    }
+}

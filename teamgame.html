@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamGame - Form 4 Academic Snake & Ladders | Edutopia Play</title>
+    <link rel="stylesheet" href="teamgame.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- ================= STUDYHUB SIDEBAR ================= -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <h2>Edutopia Play</h2>
+        </div>
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="timer.html">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Timer</span>
+                </a>
+            </li>
+            <li>
+                <a href="techniques.html">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Study Techniques</span>
+                </a>
+            </li>
+            <li>
+                <a href="videos.html">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Educational Videos</span>
+                </a>
+            </li>
+            <li>
+                <a href="todolist.html">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Time Management</span>
+                </a>
+            </li>
+            <li>
+                <a href="notes.html">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="quizizz.html">
+                    <i class="fa-solid fa-question"></i>
+                    <span>Quiz</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="game.html">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Games</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ================= MAIN GAME CONTENT ================= -->
+    <div class="main">
+        <div class="header">
+            <h1>TeamGame: Form 4 Academic Snake & Ladders</h1>
+            <p>Test your mind in Mathematics, Physics, Chemistry, Computer Science & Additional Mathematics within the StudyHub platform!</p>
+        </div>
+
+        <!-- Player Registration Screen (2-4 People) -->
+        <div id="setup-screen" class="tech-card setup-card">
+            <h2>Player Settings</h2>
+            <p style="margin-bottom: 20px; color: #5f6368;">Please enter names for 2 to 4 players before starting the game.</p>
+            <div id="player-inputs">
+                <input type="text" id="player1" placeholder="Player 1 Name" value="Player 1">
+                <input type="text" id="player2" placeholder="Player 2 Name" value="Player 2">
+                <input type="text" id="player3" placeholder="Player 3 Name (Optional)" value="">
+                <input type="text" id="player4" placeholder="Player 4 Name (Optional)" value="">
+            </div>
+            <button id="start-game-btn" onclick="startGame()">Start TeamGame</button>
+        </div>
+
+        <!-- Main Game Board & Control Panel Display -->
+        <div class="main-content hidden" id="game-main-content">
+            <div class="board-wrapper">
+                <div id="board" class="grid-board">
+                    <!-- Board tiles are dynamically generated via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Game Sidebar Panel -->
+            <div class="sidebar-game">
+                <div class="scoreboard tech-card">
+                    <h2>Player Status</h2>
+                    <ul id="player-list">
+                        <!-- Player status list -->
+                    </ul>
+                </div>
+
+                <div class="dice-section tech-card">
+                    <h3>Current Turn: <span id="current-player-name">-</span></h3>
+                    <div class="dice-display" id="dice-value">🎲 -</div>
+                    <button id="roll-btn" onclick="rollDice()">Roll Dice</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Academic Quiz Question Modal / Dialog Box -->
+    <div id="quiz-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="subject-badge" class="badge">Subject</span>
+                <span id="quiz-timer">Time: <span id="time-left">30</span>s</span>
+            </div>
+            <h3 id="question-text">Questions will be displayed here...</h3>
+            <div class="options-container" id="options-container">
+                <!-- Answer options A, B, C, D -->
+            </div>
+            <div id="feedback-message" class="hidden"></div>
+        </div>
+    </div>
+
+    <script src="teamgame.js"></script>
+</body>
+</html>

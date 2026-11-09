@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edutopia Play | Study Techniques</title>
+
+    <link rel="stylesheet" href="techniques.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-book-open-reader"></i>
+
+        <h2>Edutopia Play</h2>
+
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="timer.html">
+                <i class="fa-solid fa-clock"></i>
+                <span>Timer</span>
+            </a>
+        </li>
+
+        <li  class="active">
+            <a href="techniques.html">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Study Techniques</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="videos.html">
+                <i class="fa-solid fa-video"></i>
+                <span>Educational Videos</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="todolist.html">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Time Management</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="notes.html">
+                <i class="fa-solid fa-book"></i>
+                <span>Notes</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="quizizz.html">
+                <i class="fa-solid fa-question"></i>
+                <span>Quiz</span>
+            </a>
+        </li>
+        <li>
+            <a href="quizizz.html">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Quiz</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+    <div class="header">
+
+        <h1>Study Techniques 📚</h1>
+
+        <p>
+            Discover effective learning methods to improve your understanding and memory.
+        </p>
+
+    </div>
+
+    <div class="technique-grid">
+
+        <!-- Pomodoro -->
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h2>Pomodoro Technique</h2>
+
+            <p>
+                Study for 25 minutes, then take a 5-minute break.
+                Repeat the cycle to stay focused and avoid burnout.
+            </p>
+
+            <h4>How to Use</h4>
+
+            <ul>
+
+                <li>25 minutes study</li>
+                <li>5 minutes break</li>
+                <li>Repeat 4 sessions</li>
+                <li>Take a longer break</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Active Recall -->
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h2>Active Recall</h2>
+
+            <p>
+                Test yourself instead of rereading your notes.
+                This strengthens long-term memory.
+            </p>
+
+            <h4>Example</h4>
+
+            <ul>
+
+                <li>Close your notes</li>
+                <li>Answer questions from memory</li>
+                <li>Check your answers</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Feynman -->
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <h2>Feynman Technique</h2>
+
+            <p>
+                Explain a topic in simple language as if teaching someone else.
+            </p>
+
+            <h4>Steps</h4>
+
+            <ul>
+
+                <li>Choose a topic</li>
+                <li>Explain simply</li>
+                <li>Find missing knowledge</li>
+                <li>Review again</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Spaced Repetition -->
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-repeat"></i>
+
+            <h2>Spaced Repetition</h2>
+
+            <p>
+                Review information over increasing intervals to improve memory retention.
+            </p>
+
+            <h4>Review Plan</h4>
+
+            <ul>
+
+                <li>Day 1</li>
+                <li>Day 3</li>
+                <li>Day 7</li>
+                <li>Day 14</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Mind Mapping -->
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-sitemap"></i>
+
+            <h2>Mind Mapping</h2>
+
+            <p>
+                Connect ideas visually using diagrams and branches.
+            </p>
+
+            <h4>Best For</h4>
+
+            <ul>
+
+                <li>History</li>
+                <li>Biology</li>
+                <li>Business</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Blurting -->
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-pencil"></i>
+
+            <h2>Blurting</h2>
+
+            <p>
+                Write down everything you remember before checking your notes.
+            </p>
+
+            <h4>Steps</h4>
+
+            <ul>
+
+                <li>Read once</li>
+                <li>Close the book</li>
+                <li>Write from memory</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Modal -->
+
+<div class="modal" id="techModal">
+
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
+
+<script src="techniques.js"></script>
+
+</body>
+
+</html>
